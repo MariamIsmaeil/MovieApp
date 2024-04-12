@@ -34,11 +34,12 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_native_splash: ^2.3.11
+  flutter_bloc: ^8.1.5
+  provider: ^6.1.2
 flutter_native_splash:
   color: "#FFBB3B"
   image: assets/images/movies.png
   android_gravity: fill
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

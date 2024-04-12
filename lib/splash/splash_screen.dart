@@ -18,7 +18,6 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.pushReplacementNamed(context,RoutesManager.homeRouteName);
     });
     return Scaffold(
-        backgroundColor: Color(0xff121312),
       body: Column(
         children: [
            Expanded(flex: 3,child: Container(alignment: Alignment.center,child: Image(image: AssetImage(AssetsManager.splash)))),
