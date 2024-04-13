@@ -44,7 +44,7 @@ class PopularWidget extends StatelessWidget {
                     Container(
 
                         decoration: BoxDecoration
-                          (shape: BoxShape.circle, color: Colors.black.withOpacity(0.6),),
+                          (image: DecorationImage(image: AssetImage("assets/images/Icon awesome-bookmark.png")),),
                         child: Icon(Icons.add,color: Colors.white,size: 35.sp,))
                 ]
                 ),

@@ -23,13 +23,12 @@ class RealseWidget extends StatelessWidget {
           placeholder: (context, url) => Center(child: CircularProgressIndicator()),
           fit: BoxFit.fill, // Ensures the image covers the entire container proportionally
         ),
-        Container(
-            decoration: BoxDecoration
-              (shape: BoxShape.circle, color: Colors.black.withOpacity(0.6),),
-            child: realse.adult??false
-            ? Icon(Icons.check, color: Colors.white, size: 35.sp)
-            : Icon(Icons.add, color: Colors.white, size: 35.sp),
-        ),
+        realse.id!%2==0??false
+        ? Container( decoration: BoxDecoration
+          (image: DecorationImage(image: AssetImage("assets/images/Icon awesome-bookmark.png")),),child: Icon(Icons.add, color: Colors.white, size: 35.sp))
+        : Container(decoration: BoxDecoration
+          (image: DecorationImage(image: AssetImage("assets/images/Icon Yellow.png")),),
+            child: Icon(Icons.check, color: Colors.white, size: 35.sp))
       ],
     );
   }
