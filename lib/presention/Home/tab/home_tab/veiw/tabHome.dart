@@ -1,10 +1,11 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/core/DI/di.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/popularveiwmodel.dart';
-import 'package:movie_app/presention/Home/tab/home_tab/widget/popularlist.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/realseveiwmodel.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetPopular/popularlist.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetRelase/realselist.dart';
 
 class tabHome extends StatelessWidget {
   const tabHome({super.key});
@@ -19,6 +20,8 @@ class tabHome extends StatelessWidget {
           slivers: [
             PopularLitWidget(),
             SliverToBoxAdapter(child: SizedBox(height: 24.h,)),
+             BlocProvider(create: (BuildContext context)=>getIt<RealseViewModel>(),
+             child: RealseLitWidget()),
           ],
         ),
       ),
