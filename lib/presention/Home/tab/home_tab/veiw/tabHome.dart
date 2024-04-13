@@ -20,7 +20,7 @@ class tabHome extends StatelessWidget {
         padding: REdgeInsets.all(5.0),
         child: CustomScrollView(
           slivers: [
-            PopularLitWidget(),
+           PopularLitWidget(),
              BlocProvider(create: (BuildContext context)=>getIt<RealseViewModel>(),
              child: RealseLitWidget()),
             SliverToBoxAdapter(child: SizedBox(height: 1.h,)),

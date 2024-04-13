@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/domain/entity/popularentity/Popularentity.dart';
+import 'package:movie_app/myapp.dart';
 import 'package:movie_app/presention/Home/homescreen.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/veiw/moredetails.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/bottomnavboc.dart';
 import 'package:movie_app/splash/splash_screen.dart';
-
-import 'config/theme/apptheme.dart';
-import 'core/utils/routes_manager.dart';
+import 'package:movie_app/config/theme/apptheme.dart';
+import 'package:movie_app/core/utils/routes_manager.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -19,11 +21,20 @@ class MyApp extends StatelessWidget {
         theme: AppTheme.lightTheme,
         themeMode: ThemeMode.light,
         title: 'Flutter Demo',
-        routes: {
-          RoutesManager.splasheName: (_) => SplashScreen(),
-          RoutesManager.homeRouteName: (_) => HomeScreen()
-        },
         initialRoute: RoutesManager.splasheName,
+        onGenerateRoute: (settings) {
+          switch (settings.name) {
+            case RoutesManager.splasheName:
+              return MaterialPageRoute(builder: (_) => SplashScreen());
+            case RoutesManager.homeRouteName:
+              return MaterialPageRoute(builder: (_) => HomeScreen());
+            case RoutesManager.MoreDetailsName:
+              final popular = settings.arguments as Popularentity;
+              return MaterialPageRoute(builder: (_) => MoreDetails(popular: popular));
+            default:
+              return MaterialPageRoute(builder: (_) => SplashScreen());
+          }
+        },
       ),
     );
   }

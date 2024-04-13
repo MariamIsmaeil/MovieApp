@@ -16,7 +16,7 @@ class ApiManager {
     );
   }
 
-  Future<Response> getRequest({required String endpoint, Map<String,
+  Future<Response> getRequest({required String endpoint,Map<String,
       dynamic>? queryParameters }) async {
     var response = await dio.get(endpoint,queryParameters: queryParameters);
     return response;

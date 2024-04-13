@@ -28,7 +28,8 @@ class Popularentity {
       this.title, 
       this.video, 
       this.voteAverage, 
-      this.voteCount,});
+      this.voteCount,
+  });
 
   Popularentity.fromJson(dynamic json) {
     adult = json['adult'];

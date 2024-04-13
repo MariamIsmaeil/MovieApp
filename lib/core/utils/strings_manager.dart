@@ -6,5 +6,6 @@ static const String bottomnav3="Browse";
 static const String bottomnav4="WatchList";
 static const String NewReleases ="New Releases ";
 static const String NewReco ="Recomended";
+static const String Similar ="More Like This";
 
 }

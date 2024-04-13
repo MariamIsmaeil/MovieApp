@@ -13,7 +13,7 @@ class recomenddataimp extends Recomenddata{
   @override
   Future<Either<Recommebddatamode, String>> getRecomend() async {
     try{
-      var response = await apiManager.getRequest(endpoint: Endpoints.RecommendEndpoint);
+      var response = await apiManager.getRequest(endpoint: Endpoints.RecommendEndpoint,);
       Recommebddatamode RecomendModel = Recommebddatamode.fromJson(response.data);
       return Left(RecomendModel);
     }catch(error){
