@@ -26,7 +26,7 @@ class RecoWidget extends StatelessWidget {
                     imageUrl: imageUrl,
                     errorWidget: (context, url, error) => Icon(Icons.error, size: 25.sp),
                     placeholder: (context, url) => Center(child: CircularProgressIndicator()),
-                    fit: BoxFit.fill, // Ensures the image covers the entire container proportionally
+                    fit: BoxFit.cover, // Ensures the image covers the entire container proportionally
                   ),
                   Container( decoration: BoxDecoration
                     (image: DecorationImage(image: AssetImage("assets/images/Icon awesome-bookmark.png")),),child: Icon(Icons.add, color: Colors.white, size: 35.sp))

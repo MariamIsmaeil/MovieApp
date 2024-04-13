@@ -25,7 +25,7 @@ class PopularWidget extends StatelessWidget {
                 imageUrl: imageUrl,
                 errorWidget: (context, url, error) => Icon(Icons.error, size: 25.sp),
                 placeholder: (context, url) => Center(child: CircularProgressIndicator()),
-                fit: BoxFit.fill, // Ensures the image covers the entire container proportionally
+                fit: BoxFit.cover, // Ensures the image covers the entire container proportionally
               ),
               Align(alignment: Alignment.center,child: Container(decoration: BoxDecoration
                 (shape: BoxShape.circle, color: Colors.black.withOpacity(0.6),),

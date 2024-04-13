@@ -72,12 +72,12 @@ class _CategoriesLitWidgetState extends State<RecoLitWidget> {
                   Align(alignment: Alignment.topLeft,child: Text(StringsManager.NewReco,style:TextStyle(color: Colors.white,fontSize: 30.sp),)),
                   Expanded(
                     child: ListView.separated(
-                      padding: REdgeInsets.all(10),
+                      padding: REdgeInsets.all(5),
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) =>
                           RecoWidget(reco: state.cat[index]),
                       itemCount: state.cat.length,
-                      separatorBuilder: (BuildContext context, int index)=>SizedBox(width: 25.w),
+                      separatorBuilder: (BuildContext context, int index)=>SizedBox(width: 10.w),
                     ),
                   ),
                 ],

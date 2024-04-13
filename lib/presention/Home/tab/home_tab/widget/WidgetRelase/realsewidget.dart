@@ -21,7 +21,7 @@ class RealseWidget extends StatelessWidget {
           imageUrl: imageUrl,
           errorWidget: (context, url, error) => Icon(Icons.error, size: 25.sp),
           placeholder: (context, url) => Center(child: CircularProgressIndicator()),
-          fit: BoxFit.fill, // Ensures the image covers the entire container proportionally
+          fit: BoxFit.cover, // Ensures the image covers the entire container proportionally
         ),
         realse.id!%2==0??false
         ? Container( decoration: BoxDecoration
