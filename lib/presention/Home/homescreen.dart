@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/presention/Home/tab/home_tab/bottomhome.dart';
-import 'package:movie_app/presention/Home/tab/home_tab/tabBrowse.dart';
-import 'package:movie_app/presention/Home/tab/home_tab/tabHome.dart';
-import 'package:movie_app/presention/Home/tab/home_tab/tabSearch.dart';
-import 'package:movie_app/presention/Home/tab/home_tab/tabWatchlist.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/veiw/bottomhome.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/veiw/tabBrowse.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/veiw/tabHome.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/veiw/tabSearch.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/veiw/tabWatchlist.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/bottomnavboc.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,13 +14,18 @@ class HomeScreen extends StatelessWidget {
   List<Widget> tabs = [tabHome(),tabSearch(),tabBrowse(),tabWatchlist()];
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BottomNavBarCubit, int>(
-      builder: (context, currentNavIndex) {
-        return  Scaffold(
-            body: tabs[currentNavIndex],
-            bottomNavigationBar: BottomHome()
-        );
-      },
+    return ScreenUtilInit(
+      designSize: Size(430, 932),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context,child)=>BlocBuilder<BottomNavBarCubit, int>(
+        builder: (context, currentNavIndex) {
+          return  Scaffold(
+              body: tabs[currentNavIndex],
+              bottomNavigationBar: BottomHome()
+          );
+        },
+      ),
     );
   }
 }
