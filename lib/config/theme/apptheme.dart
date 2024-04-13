@@ -5,6 +5,6 @@ class AppTheme{
   static ThemeData lightTheme = ThemeData(
     textTheme: TextTheme(bodyMedium: TextStyle(color: ColorManager.primarycolor,fontSize: 18)),
     scaffoldBackgroundColor:Color(0xff121312),
-bottomNavigationBarTheme: BottomNavigationBarThemeData(selectedItemColor: ColorManager.primarycolor,unselectedItemColor: Colors.white)
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(selectedItemColor: ColorManager.primarycolor,unselectedItemColor: Colors.white)
   );
 }

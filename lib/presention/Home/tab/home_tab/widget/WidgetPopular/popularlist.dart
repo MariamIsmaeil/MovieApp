@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/popularveiwmodel.dart';
-import 'package:movie_app/presention/Home/tab/home_tab/widget/popularwidget.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetPopular/popularwidget.dart';
 
 
 class PopularLitWidget extends StatefulWidget {

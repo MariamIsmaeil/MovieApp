@@ -42,6 +42,7 @@ class PopularWidget extends StatelessWidget {
                     fit: BoxFit.cover, // Ensures the image covers the entire container proportionally
                   ),
                     Container(
+
                         decoration: BoxDecoration
                           (shape: BoxShape.circle, color: Colors.black.withOpacity(0.6),),
                         child: Icon(Icons.add,color: Colors.white,size: 35.sp,))
@@ -55,7 +56,7 @@ class PopularWidget extends StatelessWidget {
           popular.title ?? "",
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
-          style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 25.sp, fontWeight: FontWeight.bold),
         ),
       ],
     );

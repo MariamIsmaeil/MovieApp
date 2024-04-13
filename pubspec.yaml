@@ -45,6 +45,7 @@ dependencies:
   injectable: ^2.3.5
   # add get_it
   get_it:
+  flutter_launcher_icons: ^0.13.1
 flutter_native_splash:
   color: "#FFBB3B"
   image: assets/images/movies.png
