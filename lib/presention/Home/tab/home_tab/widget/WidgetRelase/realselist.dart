@@ -72,7 +72,7 @@ class _CategoriesLitWidgetState extends State<RealseLitWidget> {
         if (state is HomeTabsSuccessState) {
           return SliverToBoxAdapter(
             child: SizedBox(
-              height: 300.h, // Set the height of the ListView
+              height: 250.h, // Set the height of the ListView
               child: Container(color: Colors.black38,
                 child: Column(
                   children: [

@@ -4,7 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/core/DI/di.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/popularveiwmodel.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/realseveiwmodel.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/recomendveiwmodel.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetPopular/popularlist.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetRecomend/recolist.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetRelase/realselist.dart';
 
 class tabHome extends StatelessWidget {
@@ -19,9 +21,12 @@ class tabHome extends StatelessWidget {
         child: CustomScrollView(
           slivers: [
             PopularLitWidget(),
-            SliverToBoxAdapter(child: SizedBox(height: 24.h,)),
              BlocProvider(create: (BuildContext context)=>getIt<RealseViewModel>(),
              child: RealseLitWidget()),
+            SliverToBoxAdapter(child: SizedBox(height: 1.h,)),
+            BlocProvider(create: (BuildContext context)=>getIt<RecoViewModel>(),
+                child: RecoLitWidget()),
+
           ],
         ),
       ),

@@ -66,7 +66,7 @@ class _CategoriesLitWidgetState extends State<PopularLitWidget> {
         if(state is HomeTabSuccessState){
           return SliverToBoxAdapter(
             child: SizedBox(
-              height: 400.h,
+              height: 350.h,
               child: CarouselSlider.builder(
                 itemCount: state.categories.length,
                 options: CarouselOptions(
