@@ -1,10 +1,19 @@
+import 'dart:core';
+import 'dart:core';
+import 'dart:core';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/core/DI/di.dart';
 import 'package:movie_app/domain/entity/popularentity/Popularentity.dart';
-import 'package:movie_app/myapp.dart';
+import 'package:movie_app/domain/entity/realseentity/Realserntity.dart';
+import 'package:movie_app/domain/entity/recomendentity/Recomendentity.dart';
 import 'package:movie_app/presention/Home/homescreen.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiw/moredetails.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/veiw/moredetailsealase.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/veiw/moredetailsrecomand.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/bottomnavboc.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/recomendveiwmodel.dart';
 import 'package:movie_app/splash/splash_screen.dart';
 import 'package:movie_app/config/theme/apptheme.dart';
 import 'package:movie_app/core/utils/routes_manager.dart';
@@ -31,6 +40,19 @@ class MyApp extends StatelessWidget {
             case RoutesManager.MoreDetailsName:
               final popular = settings.arguments as Popularentity;
               return MaterialPageRoute(builder: (_) => MoreDetails(popular: popular));
+            case RoutesManager.MoreDetailrelase:
+              final arguments = settings.arguments as Map<String, dynamic>;
+              final Relse = arguments['Relse'] as Realserntity;
+              final list = arguments['list'] as List<Realserntity>;
+              return MaterialPageRoute(builder: (_) => MoreDetailsRelse(relse: Relse, list: list));
+
+
+            case RoutesManager.MoreDetailrecomand:
+              final arguments = settings.arguments as Map<String, dynamic>;
+              final Reco = arguments['reco'] as Recomendentity;
+              final list = arguments['list'] as List<Recomendentity>;
+              return MaterialPageRoute(builder: (_) => MoreDetailsReco(reco: Reco, list: list));
+
             default:
               return MaterialPageRoute(builder: (_) => SplashScreen());
           }

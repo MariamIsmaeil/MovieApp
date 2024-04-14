@@ -1,3 +1,5 @@
+import 'package:movie_app/domain/entity/recomendentity/Recomendentity.dart';
+
 /// adult : false
 /// backdrop_path : "/kXfqcdQKsToO0OUXHcrrNCHDBzO.jpg"
 /// genre_ids : [18,80]
@@ -28,7 +30,8 @@ class Recomendentity {
       this.title, 
       this.video, 
       this.voteAverage, 
-      this.voteCount,});
+      this.voteCount,
+  });
 
   Recomendentity.fromJson(dynamic json) {
     adult = json['adult'];

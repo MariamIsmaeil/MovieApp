@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/config/theme/apptheme.dart';
+import 'package:movie_app/core/utils/routes_manager.dart';
 import 'package:movie_app/core/utils/strings_manager.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/realseveiwmodel.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetRelase/realsewidget.dart';
@@ -82,7 +83,16 @@ class _CategoriesLitWidgetState extends State<RealseLitWidget> {
                         padding: REdgeInsets.all(10),
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) =>
-                            RealseWidget(realse: state.c[index]),
+                            InkWell(onTap: () {
+                              Navigator.pushNamed(
+                                context,
+                                RoutesManager.MoreDetailrelase,
+                                arguments: {
+                                  'Relse': state.c[index],
+                                  'list': state.c,
+                                },
+                              );
+                            },child: RealseWidget(realse: state.c[index])),
                         itemCount: state.c.length,
                         separatorBuilder: (BuildContext context, int index)=>SizedBox(width: 25.w),
                       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movie_app/core/utils/routes_manager.dart';
 import 'package:movie_app/core/utils/strings_manager.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/recomendveiwmodel.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetRecomend/recowidget.dart';
@@ -75,7 +76,16 @@ class _CategoriesLitWidgetState extends State<RecoLitWidget> {
                       padding: REdgeInsets.all(5),
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) =>
-                          RecoWidget(reco: state.cat[index]),
+                          InkWell(onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              RoutesManager.MoreDetailrecomand,
+                              arguments: {
+                                'reco': state.cat[index],
+                                'list': state.cat,
+                              },
+                            );
+                          }, child: RecoWidget(reco: state.cat[index])),
                       itemCount: state.cat.length,
                       separatorBuilder: (BuildContext context, int index)=>SizedBox(width: 10.w),
                     ),
