@@ -5,13 +5,14 @@ import 'package:movie_app/core/DI/di.dart';
 import 'package:movie_app/core/utils/strings_manager.dart';
 import 'package:movie_app/domain/entity/recomendentity/Recomendentity.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/popularveiwmodel.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/recomendveiwmodel.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetRecomend/recolist.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetRecomend/recowidget.dart';
 
 class MoreDetailsReco extends StatelessWidget {
   final Recomendentity reco;
-  final List<Recomendentity> list;
 
-  const MoreDetailsReco({Key? key, required this.reco, required this.list}) : super(key: key);
+  const MoreDetailsReco({Key? key, required this.reco}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -128,33 +129,8 @@ class MoreDetailsReco extends StatelessWidget {
                   ],
                 ),
               )),
-              SliverToBoxAdapter(
-                child: SizedBox(
-                  height: 320.h,
-                  child: Column(
-                    children: [
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          StringsManager.Similar,
-                          style: TextStyle(color: Colors.white, fontSize: 30.sp),
-                        ),
-                      ),
-                      Expanded(
-                        child: ListView.separated(
-                          padding: REdgeInsets.all(5),
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) =>
-                              RecoWidget(reco: list[index]),
-                          itemCount: list.length,
-                          separatorBuilder: (BuildContext context, int index) =>
-                              SizedBox(width: 10.w),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              BlocProvider(create: (BuildContext context)=>getIt<RecoViewModel>(),
+                  child: RecoLitWidget()),
 
 
             ],

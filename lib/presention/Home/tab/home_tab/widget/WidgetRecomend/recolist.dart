@@ -78,14 +78,11 @@ class _CategoriesLitWidgetState extends State<RecoLitWidget> {
                       itemBuilder: (context, index) =>
                           InkWell(onTap: () {
                             Navigator.pushNamed(
-                              context,
-                              RoutesManager.MoreDetailrecomand,
-                              arguments: {
-                                'reco': state.cat[index],
-                                'list': state.cat,
-                              },
+                                context,
+                                RoutesManager.MoreDetailrecomand,
+                                arguments: state.cat[index]
                             );
-                          }, child: RecoWidget(reco: state.cat[index])),
+                          },child: RecoWidget(reco: state.cat[index])),
                       itemCount: state.cat.length,
                       separatorBuilder: (BuildContext context, int index)=>SizedBox(width: 10.w),
                     ),

@@ -5,13 +5,15 @@ import 'package:movie_app/core/DI/di.dart';
 import 'package:movie_app/core/utils/strings_manager.dart';
 import 'package:movie_app/domain/entity/realseentity/Realserntity.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/popularveiwmodel.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/realseveiwmodel.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/similarbloc.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetRelase/realselist.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetRelase/realsewidget.dart';
 
 class MoreDetailsRelse extends StatelessWidget {
   final Realserntity relse;
-  final List<Realserntity> list;
 
-  const MoreDetailsRelse({Key? key, required this.relse, required this.list}) : super(key: key);
+  const MoreDetailsRelse({Key? key, required this.relse}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +71,7 @@ class MoreDetailsRelse extends StatelessWidget {
                               children: [
                                 Text(
                                   "${relse.title ?? ""}",
-                                  style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30.sp,color: Colors.white),
+                                  style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25.sp,color: Colors.white),
                                 ),
                               ],
                             ),
@@ -128,33 +130,8 @@ class MoreDetailsRelse extends StatelessWidget {
                     ],
                   ),
                 )),
-                SliverToBoxAdapter(
-                  child: SizedBox(
-                    height: 320.h,
-                    child: Column(
-                      children: [
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: Text(
-                            StringsManager.Similar,
-                            style: TextStyle(color: Colors.white, fontSize: 30.sp),
-                          ),
-                        ),
-                        Expanded(
-                          child: ListView.separated(
-                            padding: REdgeInsets.all(5),
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: (context, index) =>
-                                RealseWidget(realse: list[index]),
-                            itemCount: list.length,
-                            separatorBuilder: (BuildContext context, int index) =>
-                                SizedBox(width: 10.w),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                BlocProvider(create: (BuildContext context)=>getIt<RealseViewModel>(),
+                    child: RealseLitWidget()),
 
 
               ],

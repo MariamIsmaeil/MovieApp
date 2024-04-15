@@ -1,23 +1,20 @@
-import 'package:movie_app/domain/entity/realseentity/Realserntity.dart';
-import 'package:movie_app/domain/entity/similarentity/Similarentity.dart';
-
 /// adult : false
-/// backdrop_path : "/j3Z3XktmWB1VhsS8iXNcrR86PXi.jpg"
-/// genre_ids : [28,878,12,14]
-/// id : 823464
+/// backdrop_path : null
+/// genre_ids : [878,28]
+/// id : 374771
 /// original_language : "en"
-/// original_title : "Godzilla x Kong: The New Empire"
-/// overview : "Following their explosive showdown, Godzilla and Kong must reunite against a colossal undiscovered threat hidden within our world, challenging their very existence – and our own."
-/// popularity : 2292.858
-/// poster_path : "/tMefBSflR6PGQLv7WvFPpKLZkyk.jpg"
-/// release_date : "2024-03-27"
-/// title : "Godzilla x Kong: The New Empire"
+/// original_title : "Riddick: Furya"
+/// overview : "Riddick finally returns to his home world, Furya, a place he barely remembers and one he fears might be left in ruins by the Necromongers. But there he finds other Furyans fighting for their existence against a new enemy – and some of these Furyans are more like Riddick than he could have ever imagined."
+/// popularity : 10.791
+/// poster_path : "/luyhau7SaaobDiBegJXqD7yT9Ge.jpg"
+/// release_date : ""
+/// title : "Riddick: Furya"
 /// video : false
-/// vote_average : 6.718
-/// vote_count : 565
+/// vote_average : 0.0
+/// vote_count : 0
 
-class Realserntity {
-  Realserntity({
+class Similarentity {
+  Similarentity({
       this.adult, 
       this.backdropPath, 
       this.genreIds, 
@@ -32,9 +29,9 @@ class Realserntity {
       this.video, 
       this.voteAverage, 
       this.voteCount,
-  this.entity});
+   this.entity});
 
-  Realserntity.fromJson(dynamic json) {
+  Similarentity.fromJson(dynamic json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
     genreIds = json['genre_ids'] != null ? json['genre_ids'].cast<int>() : [];
@@ -51,7 +48,7 @@ class Realserntity {
     voteCount = json['vote_count'];
   }
   bool? adult;
-  String? backdropPath;
+  dynamic backdropPath;
   List<int>? genreIds;
   int? id;
   String? originalLanguage;
@@ -64,9 +61,9 @@ class Realserntity {
   bool? video;
   double? voteAverage;
   int? voteCount;
-  List<Realserntity>?entity;
-Realserntity copyWith({  bool? adult,
-  String? backdropPath,
+  List<Similarentity>? entity;
+Similarentity copyWith({  bool? adult,
+  dynamic backdropPath,
   List<int>? genreIds,
   int? id,
   String? originalLanguage,
@@ -79,7 +76,7 @@ Realserntity copyWith({  bool? adult,
   bool? video,
   double? voteAverage,
   int? voteCount,
-}) => Realserntity(  adult: adult ?? this.adult,
+}) => Similarentity(  adult: adult ?? this.adult,
   backdropPath: backdropPath ?? this.backdropPath,
   genreIds: genreIds ?? this.genreIds,
   id: id ?? this.id,
@@ -112,11 +109,5 @@ Realserntity copyWith({  bool? adult,
     map['vote_count'] = voteCount;
     return map;
   }
-  Similarentity ToSimilar(){
-    return Similarentity(id: id,title: title,posterPath:posterPath,voteAverage:voteAverage,voteCount:voteCount,overview:overview,
-        video:video,releaseDate:releaseDate,popularity:popularity,originalTitle:originalTitle,originalLanguage:originalLanguage,
-        genreIds:genreIds,backdropPath:backdropPath,adult:adult);
-  }
-
 
 }

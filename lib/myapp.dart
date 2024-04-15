@@ -8,6 +8,7 @@ import 'package:movie_app/core/DI/di.dart';
 import 'package:movie_app/domain/entity/popularentity/Popularentity.dart';
 import 'package:movie_app/domain/entity/realseentity/Realserntity.dart';
 import 'package:movie_app/domain/entity/recomendentity/Recomendentity.dart';
+import 'package:movie_app/domain/entity/similarentity/Similarentity.dart';
 import 'package:movie_app/presention/Home/homescreen.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiw/moredetails.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiw/moredetailsealase.dart';
@@ -41,18 +42,11 @@ class MyApp extends StatelessWidget {
               final popular = settings.arguments as Popularentity;
               return MaterialPageRoute(builder: (_) => MoreDetails(popular: popular));
             case RoutesManager.MoreDetailrelase:
-              final arguments = settings.arguments as Map<String, dynamic>;
-              final Relse = arguments['Relse'] as Realserntity;
-              final list = arguments['list'] as List<Realserntity>;
-              return MaterialPageRoute(builder: (_) => MoreDetailsRelse(relse: Relse, list: list));
-
-
+              final Relse = settings.arguments as Realserntity;
+              return MaterialPageRoute(builder: (_) => MoreDetailsRelse(relse: Relse,));
             case RoutesManager.MoreDetailrecomand:
-              final arguments = settings.arguments as Map<String, dynamic>;
-              final Reco = arguments['reco'] as Recomendentity;
-              final list = arguments['list'] as List<Recomendentity>;
-              return MaterialPageRoute(builder: (_) => MoreDetailsReco(reco: Reco, list: list));
-
+              final Relse = settings.arguments as Recomendentity;
+              return MaterialPageRoute(builder: (_) => MoreDetailsReco(reco: Relse));
             default:
               return MaterialPageRoute(builder: (_) => SplashScreen());
           }
