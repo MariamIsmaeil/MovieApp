@@ -13,6 +13,7 @@ import 'package:movie_app/presention/Home/homescreen.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiw/moredetails.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiw/moredetailsealase.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiw/moredetailsrecomand.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/veiw/moredetailssimilar.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/bottomnavboc.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/recomendveiwmodel.dart';
 import 'package:movie_app/splash/splash_screen.dart';
@@ -40,13 +41,16 @@ class MyApp extends StatelessWidget {
               return MaterialPageRoute(builder: (_) => HomeScreen());
             case RoutesManager.MoreDetailsName:
               final popular = settings.arguments as Popularentity;
-              return MaterialPageRoute(builder: (_) => MoreDetails(popular: popular));
+              return MaterialPageRoute(builder: (_) => MoreDetails(popular: popular,index: popular.id,));
             case RoutesManager.MoreDetailrelase:
               final Relse = settings.arguments as Realserntity;
-              return MaterialPageRoute(builder: (_) => MoreDetailsRelse(relse: Relse,));
+              return MaterialPageRoute(builder: (_) => MoreDetailsRelse(relse: Relse,index: Relse.id,));
             case RoutesManager.MoreDetailrecomand:
-              final Relse = settings.arguments as Recomendentity;
-              return MaterialPageRoute(builder: (_) => MoreDetailsReco(reco: Relse));
+              final Reco = settings.arguments as Recomendentity;
+              return MaterialPageRoute(builder: (_) => MoreDetailsReco(reco: Reco,index: Reco.id,));
+            case RoutesManager.MoreDetailSimilar:
+              final simi = settings.arguments as Similarentity;
+              return MaterialPageRoute(builder: (_) => MoreDetailsSimilar(simi: simi,index: simi.id,));
             default:
               return MaterialPageRoute(builder: (_) => SplashScreen());
           }

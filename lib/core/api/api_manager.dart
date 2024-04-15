@@ -10,7 +10,7 @@ class ApiManager {
         BaseOptions(
             baseUrl: Constants.baseUrl,
           headers: {
-            'Authorization': Constants.apikey,
+            "Authorization": Constants.apikey,
           }
         )
     );

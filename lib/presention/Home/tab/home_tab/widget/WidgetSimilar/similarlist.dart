@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movie_app/core/utils/routes_manager.dart';
 import 'package:movie_app/core/utils/strings_manager.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/similarbloc.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetSimilar/similarwidget.dart';
 
 class SimilarLitWidget extends StatefulWidget {
+  final int? index;
 
-   SimilarLitWidget({Key? key,this.index}) : super(key: key);
-  int? index;
+  const SimilarLitWidget({Key? key, this.index}) : super(key: key);
+
   @override
-  State<SimilarLitWidget> createState() => _CategoriesLitWidgetState();
+  _SimilarLitWidgetState createState() => _SimilarLitWidgetState();
 }
 
-class _CategoriesLitWidgetState extends State<SimilarLitWidget> {
+class _SimilarLitWidgetState extends State<SimilarLitWidget> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      context.read<SimilarVeiwModel>().Getsimi(widget.index??0);
+    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+      context.read<SimilarVeiwModel>().Getsimi(widget.index ?? 0);
     });
   }
 
@@ -47,7 +49,7 @@ class _CategoriesLitWidgetState extends State<SimilarLitWidget> {
             builder: (context) {
               return AlertDialog(
                 content: SizedBox(
-                  height: 50.h,
+                  height: 50,
                   child: Center(child: CircularProgressIndicator()),
                 ),
               );
@@ -72,19 +74,32 @@ class _CategoriesLitWidgetState extends State<SimilarLitWidget> {
         if (state is HomesSuccessState) {
           return SliverToBoxAdapter(
             child: SizedBox(
-              height: 250.h, // Set the height of the ListView
-              child: Container(color: Colors.black38,
+              height: 350.h,
+              child: Container(
+                color: Colors.black38,
                 child: Column(
                   children: [
-                    Align(alignment: Alignment.topLeft,child: Text(StringsManager.NewReleases,style:TextStyle(color: Colors.white,fontSize: 30.sp),)),
+                    Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          StringsManager.Similar,
+                          style: TextStyle(color: Colors.white, fontSize: 30),
+                        )),
                     Expanded(
                       child: ListView.separated(
-                        padding: REdgeInsets.all(10),
+                        padding: EdgeInsets.all(10),
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) =>
-                            SimilarWidget( simi: state.cat[index]),
+                            InkWell(onTap:() {
+                      Navigator.pushNamed(
+                      context,
+                      RoutesManager.MoreDetailSimilar,
+                      arguments: state.cat[index]
+                      );
+                      },child: SimilarWidget(simi: state.cat[index])),
                         itemCount: state.cat.length,
-                        separatorBuilder: (BuildContext context, int index)=>SizedBox(width: 25.w),
+                        separatorBuilder: (BuildContext context, int index) =>
+                            SizedBox(width: 25),
                       ),
                     ),
                   ],

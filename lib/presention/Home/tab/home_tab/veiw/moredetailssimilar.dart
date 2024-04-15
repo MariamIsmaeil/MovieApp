@@ -2,28 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/core/DI/di.dart';
-import 'package:movie_app/core/utils/strings_manager.dart';
-import 'package:movie_app/domain/entity/realseentity/Realserntity.dart';
+import 'package:movie_app/core/utils/routes_manager.dart';
+import 'package:movie_app/domain/entity/similarentity/Similarentity.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/popularveiwmodel.dart';
-import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/realseveiwmodel.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/similarbloc.dart';
-import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetRelase/realselist.dart';
-import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetRelase/realsewidget.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetSimilar/similarlist.dart';
 
-class MoreDetailsRelse extends StatelessWidget {
-  final Realserntity relse;
-int? index;
-   MoreDetailsRelse({Key? key, this.index,required this.relse}) : super(key: key);
+class MoreDetailsSimilar extends StatefulWidget {
+  final Similarentity simi;
+  int? index;
 
+  MoreDetailsSimilar({Key? key, this.index,required this.simi}) : super(key: key);
+
+  @override
+  State<MoreDetailsSimilar> createState() => _MoreDetailsSimilarState();
+}
+
+class _MoreDetailsSimilarState extends State<MoreDetailsSimilar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+        appBar: AppBar(actions: [TextButton(onPressed: (){
+          setState(() {
+            Navigator.pushReplacementNamed(context,RoutesManager.homeRouteName);
+          });
+        }, child: Text("HomePage"))],
           backgroundColor: Colors.black,
           centerTitle: true,
           title: Text(maxLines: 2,
-            relse.title?? "",
+            widget.simi.title ?? "",
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
           leading: IconButton(
@@ -49,7 +56,7 @@ int? index;
                             Stack(
                               children: [
                                 Image.network(
-                                  "https://image.tmdb.org/t/p/w500/${relse.posterPath}",
+                                  "https://image.tmdb.org/t/p/w500/${widget.simi.posterPath}",
                                   fit: BoxFit.fill,
                                   width: double.infinity,
                                   height: 300.h,
@@ -71,9 +78,9 @@ int? index;
                             Row(
                               children: [
                                 Expanded(
-                                  child: Text(maxLines: 2,
-                                    "${relse.title ?? ""}",
-                                    style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25.sp,color: Colors.white),
+                                  child: Text(
+                                    "${widget.simi.title ?? ""}",
+                                    style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30.sp,color: Colors.white),
                                   ),
                                 ),
                               ],
@@ -81,12 +88,12 @@ int? index;
                             Row(mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Text(
-                                  "${relse.releaseDate ?? ""}",
+                                  "${widget.simi.releaseDate ?? ""}",
                                   style: TextStyle(fontSize: 12,color: Colors.white),
                                 ),
                                 SizedBox(width: 15,),
                                 Text(
-                                  "${relse.popularity  ?? ""}",
+                                  "${widget.simi.popularity  ?? ""}",
                                   style: TextStyle(fontSize: 12,color: Colors.white),
                                 ),
                               ],
@@ -98,7 +105,7 @@ int? index;
                                   child: Stack(
                                     children: [
                                       Image.network(
-                                        "https://image.tmdb.org/t/p/w500/${relse.posterPath}",
+                                        "https://image.tmdb.org/t/p/w500/${widget.simi.posterPath}",
                                         fit: BoxFit.cover,
                                       ),
                                       Positioned.fill(
@@ -116,12 +123,12 @@ int? index;
                                 ),
                                 SizedBox(width: 12.w,),
                                 Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: [
-                                  Text('''${relse.overview}'''??"",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.white)),
+                                  Text('''${widget.simi.overview}'''??"",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.white)),
                                   Row(
                                     children: [
                                       Icon(Icons.star,color: Colors.amber,size: 24.sp,),
                                       SizedBox(width: 10.w,),
-                                      Text("${relse.voteAverage}",style: TextStyle(color: Colors.white,fontSize: 24.sp)),
+                                      Text("${widget.simi.voteAverage}",style: TextStyle(color: Colors.white,fontSize: 24.sp)),
                                     ],
                                   )
                                 ],)),
@@ -134,8 +141,7 @@ int? index;
                   ),
                 )),
                 BlocProvider(create: (BuildContext context)=>getIt<SimilarVeiwModel>(),
-                    child:SimilarLitWidget(index:index ,)),
-
+                    child:SimilarLitWidget(index:widget.index ,)),
 
               ],
             ),

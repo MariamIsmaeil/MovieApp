@@ -44,7 +44,7 @@ class RecoWidget extends StatelessWidget {
               maxLines: 3,
               style: TextStyle(color: Colors.white,fontSize: 18.sp, fontWeight: FontWeight.bold),
             ),
-            Text("${reco.releaseDate}",style: TextStyle(fontSize: 12,color: Colors.white),),
+            Text("${reco.releaseDate}",style: TextStyle(fontSize: 12,overflow:TextOverflow.ellipsis ,color: Colors.white),),
 
 
           ],

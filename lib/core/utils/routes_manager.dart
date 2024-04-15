@@ -4,5 +4,6 @@ class RoutesManager{
   static const String MoreDetailsName = "/MoreDetails";
   static const String MoreDetailrelase = "/MoreDetailsre";
   static const String MoreDetailrecomand = "/MoreDetailsrecomand";
+  static const String MoreDetailSimilar = "/MoreSimilar";
 
 }

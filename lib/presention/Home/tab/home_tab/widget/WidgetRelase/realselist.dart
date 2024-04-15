@@ -8,7 +8,8 @@ import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/realseveiw
 import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetRelase/realsewidget.dart';
 
 class RealseLitWidget extends StatefulWidget {
-  const RealseLitWidget({Key? key}) : super(key: key);
+   RealseLitWidget({Key? key,this.text}) : super(key: key);
+  String? text;
 
   @override
   State<RealseLitWidget> createState() => _CategoriesLitWidgetState();
@@ -73,11 +74,11 @@ class _CategoriesLitWidgetState extends State<RealseLitWidget> {
         if (state is HomeTabsSuccessState) {
           return SliverToBoxAdapter(
             child: SizedBox(
-              height: 250.h, // Set the height of the ListView
+              height: 300.h, // Set the height of the ListView
               child: Container(color: Colors.black38,
                 child: Column(
                   children: [
-                    Align(alignment: Alignment.topLeft,child: Text(StringsManager.NewReleases,style:TextStyle(color: Colors.white,fontSize: 30.sp),)),
+                    Align(alignment: Alignment.topLeft,child: Text(widget.text??"",style:TextStyle(color: Colors.white,fontSize: 30.sp),)),
                     Expanded(
                       child: ListView.separated(
                         padding: REdgeInsets.all(10),

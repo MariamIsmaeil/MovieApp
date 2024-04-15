@@ -8,8 +8,8 @@ import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetPopular/popu
 
 
 class PopularLitWidget extends StatefulWidget {
-  const PopularLitWidget({Key? key}) : super(key: key);
-
+   PopularLitWidget({this.text,Key? key}) : super(key: key);
+String? text;
   @override
   State<PopularLitWidget> createState() => _CategoriesLitWidgetState();
 }

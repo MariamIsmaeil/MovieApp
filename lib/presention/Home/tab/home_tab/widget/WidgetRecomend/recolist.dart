@@ -8,7 +8,8 @@ import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetRecomend/rec
 
 
 class RecoLitWidget extends StatefulWidget {
-  const RecoLitWidget({Key? key}) : super(key: key);
+   RecoLitWidget({this.text,Key? key}) : super(key: key);
+  String? text;
 
   @override
   State<RecoLitWidget> createState() => _CategoriesLitWidgetState();
@@ -67,10 +68,10 @@ class _CategoriesLitWidgetState extends State<RecoLitWidget> {
         if(state is HomeSuccessState){
           return SliverToBoxAdapter(
             child: SizedBox(
-              height: 320.h,
+              height: 350.h,
               child: Column(
                 children: [
-                  Align(alignment: Alignment.topLeft,child: Text(StringsManager.NewReco,style:TextStyle(color: Colors.white,fontSize: 30.sp),)),
+                  Align(alignment: Alignment.topLeft,child: Text(widget.text??"",style:TextStyle(color: Colors.white,fontSize: 30.sp),)),
                   Expanded(
                     child: ListView.separated(
                       padding: REdgeInsets.all(5),

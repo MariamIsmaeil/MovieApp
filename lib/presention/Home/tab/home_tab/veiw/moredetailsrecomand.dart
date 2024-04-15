@@ -6,13 +6,16 @@ import 'package:movie_app/core/utils/strings_manager.dart';
 import 'package:movie_app/domain/entity/recomendentity/Recomendentity.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/popularveiwmodel.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/recomendveiwmodel.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/similarbloc.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetRecomend/recolist.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetRecomend/recowidget.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetSimilar/similarlist.dart';
 
 class MoreDetailsReco extends StatelessWidget {
   final Recomendentity reco;
+  int? index;
 
-  const MoreDetailsReco({Key? key, required this.reco}) : super(key: key);
+   MoreDetailsReco({Key? key, this.index,required this.reco}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,7 @@ class MoreDetailsReco extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.black,
         centerTitle: true,
-        title: Text(
+        title: Text(maxLines: 2,
           reco.title ?? "",
           style: TextStyle(color: Colors.white, fontSize: 20),
         ),
@@ -68,9 +71,11 @@ class MoreDetailsReco extends StatelessWidget {
                           ),
                           Row(
                             children: [
-                              Text(
-                                "${reco.title ?? ""}",
-                                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30.sp,color: Colors.white),
+                              Expanded(
+                                child: Text(
+                                  "${reco.title ?? ""}",
+                                  style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30.sp,color: Colors.white),
+                                ),
                               ),
                             ],
                           ),
@@ -129,9 +134,8 @@ class MoreDetailsReco extends StatelessWidget {
                   ],
                 ),
               )),
-              BlocProvider(create: (BuildContext context)=>getIt<RecoViewModel>(),
-                  child: RecoLitWidget()),
-
+              BlocProvider(create: (BuildContext context)=>getIt<SimilarVeiwModel>(),
+                  child:SimilarLitWidget(index:index ,)),
 
             ],
           ),
