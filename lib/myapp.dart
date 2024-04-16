@@ -9,8 +9,10 @@ import 'package:movie_app/domain/entity/discoverentity/Discoverentity.dart';
 import 'package:movie_app/domain/entity/popularentity/Popularentity.dart';
 import 'package:movie_app/domain/entity/realseentity/Realserntity.dart';
 import 'package:movie_app/domain/entity/recomendentity/Recomendentity.dart';
+import 'package:movie_app/domain/entity/search/Searchentity.dart';
 import 'package:movie_app/domain/entity/similarentity/Similarentity.dart';
 import 'package:movie_app/presention/Home/homescreen.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/veiw/moredatailssearch.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiw/moredetails.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiw/moredetailsdiscover.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiw/moredetailsealase.dart';
@@ -65,6 +67,11 @@ class MyApp extends StatelessWidget {
             case RoutesManager.MoreDiscoverdetails:
               final dis = settings.arguments as Discoverentity;
               return MaterialPageRoute(builder: (_) => MoreDetailsDiscover(index: dis.id, dis: dis,));
+
+
+            case RoutesManager.MoreSearchDetails:
+              final sa = settings.arguments as Searchentity;
+              return MaterialPageRoute(builder: (_) => MoreDetailsSearch(index: sa.id, sa: sa,));
 
             default:
               return MaterialPageRoute(builder: (_) => SplashScreen());

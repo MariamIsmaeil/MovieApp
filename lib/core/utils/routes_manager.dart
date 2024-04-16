@@ -7,5 +7,6 @@ class RoutesManager{
   static const String MoreDetailSimilar = "/MoreSimilar";
   static const String MoreDiscover = "/Discover";
   static const String MoreDiscoverdetails = "/MoreDiscover";
+  static const String MoreSearchDetails = "/MoreSearch";
 
 }

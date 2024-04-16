@@ -5,4 +5,5 @@ class Endpoints {
   static const String moredetails = "/movie";
   static const String genre = "/genre/movie/list";
   static const String discover = "/discover/movie";
+  static const String Search = "/search/movie";
 }
