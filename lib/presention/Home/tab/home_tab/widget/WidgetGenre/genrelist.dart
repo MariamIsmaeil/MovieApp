@@ -90,7 +90,13 @@ class _CategoriesLitWidgetState extends State<GenreLitWidget> {
                           mainAxisSpacing: 10.w),
                         itemCount: state.categories.length,
                         itemBuilder: (context, index) {
-                          return GenreWidget(gen: state.categories[index]);
+                          return InkWell(onTap: () {
+                            Navigator.pushNamed(
+                                context,
+                                RoutesManager.MoreDiscover,
+                                arguments: state.categories[index]
+                            );
+                          },child: GenreWidget(gen: state.categories[index]));
                         },
                       ),
                     ),

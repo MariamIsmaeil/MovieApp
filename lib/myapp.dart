@@ -5,20 +5,24 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/DI/di.dart';
+import 'package:movie_app/domain/entity/discoverentity/Discoverentity.dart';
 import 'package:movie_app/domain/entity/popularentity/Popularentity.dart';
 import 'package:movie_app/domain/entity/realseentity/Realserntity.dart';
 import 'package:movie_app/domain/entity/recomendentity/Recomendentity.dart';
 import 'package:movie_app/domain/entity/similarentity/Similarentity.dart';
 import 'package:movie_app/presention/Home/homescreen.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiw/moredetails.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/veiw/moredetailsdiscover.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiw/moredetailsealase.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiw/moredetailsrecomand.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiw/moredetailssimilar.dart';
+import 'package:movie_app/presention/Home/tab/home_tab/veiw/tabdiscover.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/bottomnavboc.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/recomendveiwmodel.dart';
 import 'package:movie_app/splash/splash_screen.dart';
 import 'package:movie_app/config/theme/apptheme.dart';
 import 'package:movie_app/core/utils/routes_manager.dart';
+import 'package:movie_app/domain/entity/genreentity/Genreentity.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -51,6 +55,17 @@ class MyApp extends StatelessWidget {
             case RoutesManager.MoreDetailSimilar:
               final simi = settings.arguments as Similarentity;
               return MaterialPageRoute(builder: (_) => MoreDetailsSimilar(simi: simi,index: simi.id,));
+
+            case RoutesManager.MoreDiscover:
+              final gen = settings.arguments as Genreentity;
+              return MaterialPageRoute(builder: (_) => tabDiscover(index: gen.id, gen: gen,));
+
+
+
+            case RoutesManager.MoreDiscoverdetails:
+              final dis = settings.arguments as Discoverentity;
+              return MaterialPageRoute(builder: (_) => MoreDetailsDiscover(index: dis.id, dis: dis,));
+
             default:
               return MaterialPageRoute(builder: (_) => SplashScreen());
           }

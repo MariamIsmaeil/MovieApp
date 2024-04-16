@@ -4,4 +4,5 @@ class Endpoints {
   static const String RecommendEndpoint = "/movie/top_rated";
   static const String moredetails = "/movie";
   static const String genre = "/genre/movie/list";
+  static const String discover = "/discover/movie";
 }
