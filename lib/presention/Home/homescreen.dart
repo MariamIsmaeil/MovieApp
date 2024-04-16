@@ -11,7 +11,7 @@ import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/bottomnavb
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
 
-  List<Widget> tabs = [tabHome(),tabSearch(),tabBrowse(),tabWatchlist()];
+  List<Widget> tabs = [tabHome(),TabSearch(),tabBrowse(),tabWatchlist()];
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(

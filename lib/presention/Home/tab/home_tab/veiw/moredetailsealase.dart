@@ -8,7 +8,6 @@ import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/popularvei
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/realseveiwmodel.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/similarbloc.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetRelase/realselist.dart';
-import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetRelase/realsewidget.dart';
 import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetSimilar/similarlist.dart';
 
 class MoreDetailsRelse extends StatelessWidget {

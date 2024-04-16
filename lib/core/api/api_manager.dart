@@ -11,7 +11,8 @@ class ApiManager {
             baseUrl: Constants.baseUrl,
           headers: {
             "Authorization": Constants.apikey,
-          }
+          },
+
         )
     );
   }
