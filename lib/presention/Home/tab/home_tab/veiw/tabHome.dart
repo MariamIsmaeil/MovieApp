@@ -12,7 +12,6 @@ import 'package:movie_app/presention/Home/tab/home_tab/widget/WidgetRelase/reals
 
 class tabHome extends StatelessWidget {
   const tabHome({super.key});
-
   @override
   Widget build(BuildContext context) {
     return  BlocProvider(

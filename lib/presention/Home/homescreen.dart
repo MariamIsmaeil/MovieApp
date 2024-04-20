@@ -11,21 +11,24 @@ import 'package:movie_app/presention/Home/tab/home_tab/veiwModel/bloc/bottomnavb
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
 
-  List<Widget> tabs = [tabHome(),TabSearch(),tabBrowse(),tabWatchlist()];
+  List<Widget> tabs = [tabHome(), TabSearch(), tabBrowse(), tabWatchlist()];
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: Size(430, 932),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context,child)=>BlocBuilder<BottomNavBarCubit, int>(
-        builder: (context, currentNavIndex) {
-          return  Scaffold(
-              body: tabs[currentNavIndex],
-              bottomNavigationBar: BottomHome()
-          );
-        },
-      ),
+      builder: (context, child) =>
+          BlocBuilder<BottomNavBarCubit, int>(
+            builder: (context, currentNavIndex) {
+              return Scaffold(
+                  body: tabs[currentNavIndex],
+                  bottomNavigationBar: BottomHome()
+              );
+            },
+          ),
     );
   }
 }
+

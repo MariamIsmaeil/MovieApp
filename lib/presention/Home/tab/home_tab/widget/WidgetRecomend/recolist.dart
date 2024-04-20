@@ -83,7 +83,7 @@ class _CategoriesLitWidgetState extends State<RecoLitWidget> {
                                 RoutesManager.MoreDetailrecomand,
                                 arguments: state.cat[index]
                             );
-                          },child: RecoWidget(reco: state.cat[index])),
+                          },child: RecoWidget(reco: state.cat[index], onAddToWishlist: () {  },)),
                       itemCount: state.cat.length,
                       separatorBuilder: (BuildContext context, int index)=>SizedBox(width: 10.w),
                     ),

@@ -34,6 +34,7 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => BottomNavBarCubit(),
       child: MaterialApp(
+        home: HomeScreen(),
         debugShowCheckedModeBanner: false,
         theme: AppTheme.lightTheme,
         themeMode: ThemeMode.light,

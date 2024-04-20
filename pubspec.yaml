@@ -40,12 +40,17 @@ dependencies:
   cached_network_image: ^3.3.1
   dio: ^5.4.2+1
   dartz: ^0.10.1
+  firebase_auth: ^4.19.2
   flutter_screenutil: ^5.9.0
   # add injectable to your dependencies
   injectable: ^2.3.5
   # add get_it
   get_it:
   flutter_launcher_icons: ^0.13.1
+  firebase_core: ^2.30.0
+  cloud_firestore: ^4.17.0
+  firebase_storage: ^11.7.2
+  firebase_messaging: ^14.8.2
 flutter_native_splash:
   color: "#FFBB3B"
   image: assets/images/movies.png
